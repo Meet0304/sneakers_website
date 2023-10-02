@@ -1,0 +1,944 @@
+html {
+    font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* NAVIGATION BAR */
+  
+  nav {
+    background-color: #111;
+    color: white;
+    padding: 20px 50px;
+  }
+  
+  .navTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .search {
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  
+  .searchInput {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .searchInput::placeholder {
+    color: lightgray;
+  }
+  
+  .limitedOffer {
+    font-size: 1.25rem;
+    border-bottom: 2px solid #e4ae01;
+    cursor: pointer;
+  }
+  
+  .searchIcon:hover {
+    cursor: pointer;
+  }
+  
+  .navBottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menuItem {
+    margin-right: 3.125em;
+    margin-top: 2.5em;
+    cursor: pointer;
+    color: lightgray;
+    font-weight: 400;
+    font-size: 15px;
+    --c: #f3f6f7; /* the color */
+    --s: .15em;
+    
+    --c: #7f9096; /* the color */
+  --b: .1em;    /* border length*/
+  --d: 10px;    /* the cube depth */
+  --h: 1.2em;   /* the height */
+  
+  --_s: calc(var(--d) + var(--b));
+
+  line-height: var(--h);
+  color: #0000;
+  text-shadow: 
+    0 calc(-1*var(--_t,0em)) var(--c), 
+    0 calc(var(--h) - var(--_t,0em)) #fff;
+  border: solid #0000;
+  overflow: hidden;
+  border-width: var(--b) var(--b) var(--_s) var(--_s);
+  background:
+    linear-gradient(var(--c) 0 0) 100% 100%
+     /101% var(--_p,0%) no-repeat,
+    conic-gradient(at left var(--d)  bottom var(--d),
+      #0000 90deg, rgb(255 255 255 /0.3) 0 225deg,rgb(255 255 255 /0.6) 0) border-box,
+    conic-gradient(at left var(--_s) bottom var(--_s),
+      #0000 90deg,var(--c) 0) 0 100%/calc(100% - var(--b)) calc(100% - var(--b))  border-box;
+  transform: translate(calc(var(--d)/-1),var(--d));
+  clip-path: 
+    polygon(
+     var(--d) 0%, 
+     var(--d) 0%, 
+     100% 0%, 
+     100% calc(100% - var(--d)),
+     100% calc(100% - var(--d)),
+     var(--d) calc(100% - var(--d))
+    );
+  transition: 0.5s;
+
+  }
+  .menuItem:hover {
+    /* color: rgb(0, 205, 0); */
+    transform: translate(0,0);
+  clip-path: 
+    polygon(
+     0% var(--d), 
+     var(--d) 0%, 
+     100% 0%, 
+     100% calc(100% - var(--d)), 
+     calc(100% - var(--d)) 100%, 
+     0% 100%
+   );
+  --_t: var(--h);
+  --_p: 105%;
+}
+  
+  /* SLIDER */
+  
+  .slider {
+    background-image: url('./img/bak.jpg');
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    background-size: 100vw;
+    overflow: hidden;
+  }
+  
+  .sliderWrapper {
+    display: flex;
+    width: 500vw;
+    transition: all 1.5s ease-in-out;
+  }
+  
+  .sliderItem {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .sliderBgCircle {
+    width: 750px;
+    height: 750px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: rgba(0, 205, 0, 0.65);
+  }
+  
+  .sliderImage {
+    z-index: 1;
+  }
+  
+  .sliderTitle {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 3.75rem;
+    font-weight: 900;
+    text-align: right;
+    color: white;
+    z-index: 1;
+  }
+  .sliderPrice {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 3.75rem;
+    font-weight: 300;
+    text-align: right;
+    color: white;
+    border: 1px solid gray;
+    z-index: 1;
+  }
+  .buyButton {
+    /* position: absolute; */
+    top: 50%;
+    right: 10%;
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: right;
+    /* color: white;
+    border: 1px solid gray; */
+    /* background-color: black; */
+    z-index: 1;
+    cursor: pointer;
+    font-size: 20px;
+
+    --c: #3db7e3; /* the color */
+    --b: .1em;    /* border length*/
+    --d: 10px;    /* the cube depth */
+    --h: 1.2em;   /* the height */
+    
+    --_s: calc(var(--d) + var(--b));
+
+    line-height: var(--h);
+    color: #0000;
+    text-shadow: 
+      0 calc(-1*var(--_t,0em)) var(--c), 
+      0 calc(var(--h) - var(--_t,0em)) #fff;
+    border: solid #0000;
+    overflow: hidden;
+    border-width: var(--b) var(--b) var(--_s) var(--_s);
+    background:
+      linear-gradient(var(--c) 0 0) 100% 100%
+      /101% var(--_p,0%) no-repeat,
+      conic-gradient(at left var(--d)  bottom var(--d),
+        #0000 90deg, rgb(255 255 255 /0.3) 0 225deg,rgb(255 255 255 /0.6) 0) border-box,
+      conic-gradient(at left var(--_s) bottom var(--_s),
+        #0000 90deg,var(--c) 0) 0 100%/calc(100% - var(--b)) calc(100% - var(--b))  border-box;
+    transform: translate(calc(var(--d)/-1),var(--d));
+    clip-path: 
+      polygon(
+      var(--d) 0%, 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)),
+      100% calc(100% - var(--d)),
+      var(--d) calc(100% - var(--d))
+      );
+    transition: 0.5s;
+  }
+  .buyButton:hover {
+    /* background-color: white;
+    color: black; */
+    transform: translate(0,0);
+      clip-path: 
+      polygon(
+      0% var(--d), 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)), 
+      calc(100% - var(--d)) 100%, 
+      0% 100%
+    );
+    --_t: var(--h);
+    --_p: 105%;
+  }
+  
+  .sliderItem:nth-child(2) .sliderBgCircle {
+    background-color: rgba(102, 51, 153, 0.65);
+  }
+  .sliderItem:nth-child(3) .sliderBgCircle {
+    background-color: rgba(0, 128, 128, 0.65);
+  }
+  .sliderItem:nth-child(4) .sliderBgCircle {
+    background-color: rgba(100, 149, 237, 0.65);
+  }
+  .sliderItem:nth-child(5) .sliderBgCircle {
+    background-color: rgba(211, 103, 105, 0.65);
+  }
+  .sliderItem:nth-child(1) .sliderPrice {
+    background-color: #111;
+    color: rgba(0, 205, 0);
+    padding: 5px;
+  }
+  .sliderItem:nth-child(2) .sliderPrice {
+    background-color: #111;
+    color: rgb(150, 44, 255);
+    padding: 5px;
+  }
+  .sliderItem:nth-child(3) .sliderPrice {
+    background-color: #111;
+    color: rgb(0, 174, 174);
+    padding: 5px;
+  }
+  .sliderItem:nth-child(4) .sliderPrice {
+    background-color: #111;
+    color: rgb(83, 143, 255);
+    padding: 5px;
+  }
+  .sliderItem:nth-child(5) .sliderPrice {
+    background-color: #111;
+    color: rgb(255, 93, 95);
+    padding: 5px;
+  }
+  
+  /* FEATURES */
+  
+  .features {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+  }
+  
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .featureIcon {
+    width: 50px;
+    height: 50px;
+  }
+  .featureTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 20px;
+  }
+  .featureDescription {
+    color: gray;
+    width: 50%;
+    height: 100px;
+  }
+  
+  /*  PRODUCTS */
+  
+  .product {
+    height: 100vh;
+    background-color: whitesmoke;
+    position: relative;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  .payment {
+    width: 500px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    /*  How to position an absolute item to center? Look below */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 10px 50px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+  
+  label {
+    font-size: 0.875rem;
+    font-weight: 300;
+  }
+  
+  .payInput {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .payInput::placeholder {
+    color: lightgray;
+  }
+  
+  .cardIcons {
+    display: flex;
+  }
+  .cardIcon {
+    margin-right: 10px;
+  }
+  .cardInfo {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .small {
+    width: 25%;
+  }
+  
+  .payButton {
+    position: absolute;
+    height: 40px;
+    bottom: -40px;
+    width: 100%;
+    left: 0;
+    box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 205, 0, 0.95);
+    color: white;
+    cursor: pointer;
+  }
+  
+  .payTitle {
+    font-size: 1.25rem;
+    color: rgb(122, 122, 122);
+  }
+  
+  .close {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 2px;
+  }
+  
+  .productImage {
+    width: 50%;
+  }
+  .productDetails {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    width: 40%;
+    padding: 50px;
+  }
+  .productTitle {
+    font-size: 4.688rem;
+    font-weight: 900;
+  }
+  
+  .productDescription {
+    font-style: 24px;
+    color: gray;
+  }
+  
+  .colors,
+  .sizes {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .color {
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: black;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .color:last-child {
+    background-color: darkblue;
+  }
+  
+  .size {
+    padding: 5px 20px;
+    border: 1px solid black;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 1.25rem;
+  }
+  
+  .productButton {
+    float: right;
+    /* padding: 10px 20px;
+    background-color: black;
+    color: white; */
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
+
+    --c: #111111; /* the color */
+    --b: .1em;    /* border length*/
+    --d: 10px;    /* the cube depth */
+    --h: 1.2em;   /* the height */
+    
+    --_s: calc(var(--d) + var(--b));
+
+    line-height: var(--h);
+    color: #0000;
+    text-shadow: 
+      0 calc(-1*var(--_t,0em)) var(--c), 
+      0 calc(var(--h) - var(--_t,0em)) #fff;
+    border: solid #0000;
+    overflow: hidden;
+    border-width: var(--b) var(--b) var(--_s) var(--_s);
+    background:
+      linear-gradient(var(--c) 0 0) 100% 100%
+      /101% var(--_p,0%) no-repeat,
+      conic-gradient(at left var(--d)  bottom var(--d),
+        #0000 90deg, rgb(255 255 255 /0.3) 0 225deg,rgb(255 255 255 /0.6) 0) border-box,
+      conic-gradient(at left var(--_s) bottom var(--_s),
+        #0000 90deg,var(--c) 0) 0 100%/calc(100% - var(--b)) calc(100% - var(--b))  border-box;
+    transform: translate(calc(var(--d)/-1),var(--d));
+    clip-path: 
+      polygon(
+      var(--d) 0%, 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)),
+      100% calc(100% - var(--d)),
+      var(--d) calc(100% - var(--d))
+      );
+    transition: 0.5s;
+  }
+  
+  .productButton:hover {
+    /* background-color: white;
+    color: black; */
+
+    transform: translate(0,0);
+      clip-path: 
+      polygon(
+      0% var(--d), 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)), 
+      calc(100% - var(--d)) 100%, 
+      0% 100%
+    );
+    --_t: var(--h);
+    --_p: 105%;
+  }
+  
+  /* GALLERY */
+  
+  .gallery {
+    padding: 50px;
+    display: flex;
+  }
+  
+  .galleryItem {
+    flex: 1; /* width: 33.33% */
+    padding: 15px;
+  }
+  
+  .galleryImage {
+    width: 100%;
+  }
+  
+  /* NEW SEASON */
+  
+  .newSeason {
+    display: flex;
+  }
+  
+  .nsItem {
+    flex: 1;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .nsImage {
+    width: 100%;
+    height: 500px;
+  }
+  
+  .nsTitle {
+    font-size: 2.5rem;
+  }
+  
+  .nsButton {
+
+    /* padding: 15px;
+    font-weight: 600; */
+    /* cursor: pointer; */
+    font-size: 20px;
+    --c: #7f9096; /* the color */
+    --b: .05em;    /* border length*/
+    --d: 10px;    /* the cube depth */
+    --h: 1.2em;   /* the height */
+    
+    --_s: calc(var(--d) + var(--b));
+
+    line-height: var(--h);
+    color: #0000;
+    text-shadow: 
+      0 calc(-1*var(--_t,0em)) var(--c), 
+      0 calc(var(--h) - var(--_t,0em)) #fff;
+    border: solid #0000;
+    overflow: hidden;
+    border-width: var(--b) var(--b) var(--_s) var(--_s);
+    background:
+      linear-gradient(var(--c) 0 0) 100% 100%
+      /101% var(--_p,0%) no-repeat,
+      conic-gradient(at left var(--d)  bottom var(--d),
+        #0000 90deg, rgb(255 255 255 /0.3) 0 225deg,rgb(255 255 255 /0.6) 0) border-box,
+      conic-gradient(at left var(--_s) bottom var(--_s),
+        #0000 90deg,var(--c) 0) 0 100%/calc(100% - var(--b)) calc(100% - var(--b))  border-box;
+    transform: translate(calc(var(--d)/-1),var(--d));
+    clip-path: 
+      polygon(
+      var(--d) 0%, 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)),
+      100% calc(100% - var(--d)),
+      var(--d) calc(100% - var(--d))
+      );
+    transition: 0.5s;
+  }
+
+  .nsButton:hover{
+    transform: translate(0,0);
+      clip-path: 
+      polygon(
+      0% var(--d), 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)), 
+      calc(100% - var(--d)) 100%, 
+      0% 100%
+    );
+    --_t: var(--h);
+    --_p: 105%;
+
+  }
+  
+  /* FOOTER */
+  
+  footer {
+    display: flex;
+  }
+  
+  .footerLeft {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+  }
+  
+  .footerMenuTitle {
+    font-size: 1rem;
+  }
+  
+  .footerMenuList {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .footerListItem {
+    margin-bottom: 10px;
+    color: gray;
+    cursor: pointer;
+  }
+  
+  .footerRight {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .footerInput {
+    padding: 5px;
+  }
+  
+  .footerButton {
+    padding: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .footerIcons {
+    display: flex;
+  }
+  
+  .footerIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .copyright {
+    font-weight: 300;
+    font-size: 0.875rem;
+  }
+
+  .sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  }
+  
+  /* The sidebar links */
+  .sidebar a {
+    /* padding: 8px 8px 8px 32px; */
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    /* background: linear-gradient(#1095c1 0 0) var(--p,0)/var(--p,0) no-repeat;
+    transition: .4s,background-position 0s; */
+    --c: #7f9096; /* the color */
+    --b: .05em;    /* border length*/
+    --d: 10px;    /* the cube depth */
+    --h: 1.2em;   /* the height */
+    
+    --_s: calc(var(--d) + var(--b));
+
+    line-height: var(--h);
+    color: #0000;
+    text-shadow: 
+      0 calc(-1*var(--_t,0em)) var(--c), 
+      0 calc(var(--h) - var(--_t,0em)) #fff;
+    border: solid #0000;
+    overflow: hidden;
+    border-width: var(--b) var(--b) var(--_s) var(--_s);
+    background:
+      linear-gradient(var(--c) 0 0) 100% 100%
+      /101% var(--_p,0%) no-repeat,
+      conic-gradient(at left var(--d)  bottom var(--d),
+        #0000 90deg, rgb(255 255 255 /0.3) 0 225deg,rgb(255 255 255 /0.6) 0) border-box,
+      conic-gradient(at left var(--_s) bottom var(--_s),
+        #0000 90deg,var(--c) 0) 0 100%/calc(100% - var(--b)) calc(100% - var(--b))  border-box;
+    transform: translate(calc(var(--d)/-1),var(--d));
+    clip-path: 
+      polygon(
+      var(--d) 0%, 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)),
+      100% calc(100% - var(--d)),
+      var(--d) calc(100% - var(--d))
+      );
+    transition: 0.5s;
+  }
+
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidebar a:hover {
+    /* --p: 100%;
+    color: #fff; */
+    transform: translate(0,0);
+      clip-path: 
+      polygon(
+      0% var(--d), 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)), 
+      calc(100% - var(--d)) 100%, 
+      0% 100%
+    );
+    --_t: var(--h);
+    --_p: 105%;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  
+  /* The button used to open the sidebar */
+  .openbtn {
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    /* padding: 10px 15px; */
+    border: none;
+    border-radius: 2px;
+
+    --c: #7f9096; /* the color */
+    --b: .1em;    /* border length*/
+    --d: 10px;    /* the cube depth */
+    --h: 1.2em;   /* the height */
+    
+    --_s: calc(var(--d) + var(--b));
+
+    line-height: var(--h);
+    color: #0000;
+    text-shadow: 
+      0 calc(-1*var(--_t,0em)) var(--c), 
+      0 calc(var(--h) - var(--_t,0em)) #fff;
+    border: solid #0000;
+    overflow: hidden;
+    border-width: var(--b) var(--b) var(--_s) var(--_s);
+    background:
+      linear-gradient(var(--c) 0 0) 100% 100%
+      /101% var(--_p,0%) no-repeat,
+      conic-gradient(at left var(--d)  bottom var(--d),
+        #0000 90deg, rgb(255 255 255 /0.3) 0 225deg,rgb(255 255 255 /0.6) 0) border-box,
+      conic-gradient(at left var(--_s) bottom var(--_s),
+        #0000 90deg,var(--c) 0) 0 100%/calc(100% - var(--b)) calc(100% - var(--b))  border-box;
+    transform: translate(calc(var(--d)/-1),var(--d));
+    clip-path: 
+      polygon(
+      var(--d) 0%, 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)),
+      100% calc(100% - var(--d)),
+      var(--d) calc(100% - var(--d))
+      );
+    transition: 0.5s;
+    }
+    
+    .openbtn:hover {
+      /* background-color: #444; */
+      transform: translate(0,0);
+      clip-path: 
+      polygon(
+      0% var(--d), 
+      var(--d) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--d)), 
+      calc(100% - var(--d)) 100%, 
+      0% 100%
+    );
+    --_t: var(--h);
+    --_p: 105%;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+  
+  @media screen and (max-width: 480px) {
+    nav {
+      padding: 20px;
+    }
+  
+    .search {
+      display: none;
+    }
+  
+    .navBottom {
+      flex-wrap: wrap;
+    }
+  
+    .menuItem {
+      margin: 20px;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+  
+    .slider {
+      clip-path: none;
+    }
+  
+    .sliderImage {
+      width: 90%;
+    }
+  
+    .sliderBgCircle {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .sliderTitle {
+      display: none;
+    }
+  
+    .sliderPrice {
+      top: unset;
+      bottom: -50;
+      left: 0;
+      background-color: lightgrey;
+      font-size: 2.25rem;
+    }
+  
+    .buyButton {
+      right: 0;
+      top: 0;
+    }
+  
+    .features {
+      flex-direction: column;
+    }
+  
+    .product {
+      clip-path: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .productImage {
+      width: 80%;
+    }
+  
+    .productDetails {
+      width: 100%;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      top: 0;
+    }
+  
+    .productTitle {
+      font-size: 3.125rem;
+      margin: 0;
+    }
+  
+    .gallery {
+      display: none;
+    }
+  
+    .newSeason {
+      flex-direction: column;
+    }
+  
+    .nsItem:nth-child(2) {
+      padding: 50px;
+    }
+  
+    footer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footerLeft {
+      padding: 20px;
+      width: 90%;
+    }
+  
+    .footerRight {
+      padding: 20px;
+      width: 90%;
+      align-items: center;
+      background-color: whitesmoke;
+    }
+  
+    .payment {
+      width: 90%;
+      padding: 20px;
+    }
+  }
